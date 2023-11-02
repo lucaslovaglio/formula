@@ -1,15 +1,12 @@
 package edu.austral.ingsis.math.visitor;
 
 
-import edu.austral.ingsis.math.visitor.*;
-import edu.austral.ingsis.math.visitor.Number;
-import edu.austral.ingsis.math.visitor.PrinterVisitor;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class VisitorPrintTest {
+public class PrintTest {
 
     /**
      * Case 1 + 6
@@ -84,9 +81,9 @@ public class VisitorPrintTest {
         Variable variable = new Variable("value");
         PrinterVisitor printerVisitor = new PrinterVisitor();
         Absolute absolute = new Absolute(variable);
-        Subtract subtract = new Subtract(absolute, number);
+        Subtraction subtraction = new Subtraction(absolute, number);
         final String expected = "|value| - 8";
-        final String result = subtract.accept(printerVisitor);
+        final String result = subtraction.accept(printerVisitor);
 
         assertThat(result, equalTo(expected));
     }
@@ -100,9 +97,9 @@ public class VisitorPrintTest {
         Variable variable = new Variable("value");
         PrinterVisitor printerVisitor = new PrinterVisitor();
         Absolute absolute = new Absolute(variable);
-        Subtract subtract = new Subtract(absolute, number);
+        Subtraction subtraction = new Subtraction(absolute, number);
         final String expected = "|value| - 8";
-        final String result = subtract.accept(printerVisitor);
+        final String result = subtraction.accept(printerVisitor);
 
         assertThat(result, equalTo(expected));
     }
@@ -116,8 +113,8 @@ public class VisitorPrintTest {
         Number number2 = new Number(8);
         Variable variable = new Variable("i");
         PrinterVisitor printerVisitor = new PrinterVisitor();
-        Subtract subtract = new Subtract(number1, variable);
-        Multiplication multiplication = new Multiplication(subtract, number2);
+        Subtraction subtraction = new Subtraction(number1, variable);
+        Multiplication multiplication = new Multiplication(subtraction, number2);
         final String expected = "(5 - i) * 8";
         final String result = multiplication.accept(printerVisitor);
 

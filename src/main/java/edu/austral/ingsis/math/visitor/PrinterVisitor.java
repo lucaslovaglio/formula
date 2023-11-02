@@ -41,8 +41,8 @@ public class PrinterVisitor implements Visitor<String> {
     }
 
     @Override
-    public String visit(Subtract subtract) {
-        return formatFunction(subtract.getLeft()) + " - " + formatFunction(subtract.getRight());
+    public String visit(Subtraction subtraction) {
+        return formatFunction(subtraction.getLeft()) + " - " + formatFunction(subtraction.getRight());
     }
 
     @Override

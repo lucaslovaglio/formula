@@ -1,9 +1,7 @@
 package edu.austral.ingsis.math.visitor;
 
-import edu.austral.ingsis.math.composite.Substract;
 import org.junit.Test;
 
-import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,7 +9,7 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.empty;
 
 
-public class VisitorListVariablesTest {
+public class ListVariablesTest {
 
     /**
      * Case 1 + 6
@@ -97,9 +95,9 @@ public class VisitorListVariablesTest {
         Number number = new Number(8);
         Variable variable = new Variable("value");
         Absolute absolute = new Absolute(variable);
-        Subtract subtract = new Subtract(absolute, number);
+        Subtraction subtraction = new Subtraction(absolute, number);
         VariableListVisitor variableListVisitor = new VariableListVisitor();
-        final List<String> result = subtract.accept(variableListVisitor);
+        final List<String> result = subtraction.accept(variableListVisitor);
 
         assertThat(result, containsInAnyOrder("value"));
     }
@@ -112,9 +110,9 @@ public class VisitorListVariablesTest {
         Number number = new Number(8);
         Variable variable = new Variable("value");
         Absolute absolute = new Absolute(variable);
-        Subtract subtract = new Subtract(absolute, number);
+        Subtraction subtraction = new Subtraction(absolute, number);
         VariableListVisitor variableListVisitor = new VariableListVisitor();
-        final List<String> result = subtract.accept(variableListVisitor);
+        final List<String> result = subtraction.accept(variableListVisitor);
 
         assertThat(result, containsInAnyOrder("value"));
     }
@@ -127,8 +125,8 @@ public class VisitorListVariablesTest {
         Number number1 = new Number(5);
         Number number2 = new Number(8);
         Variable variable = new Variable("i");
-        Subtract subtract = new Subtract(number1, variable);
-        Multiplication multiplication = new Multiplication(subtract, number2);
+        Subtraction subtraction = new Subtraction(number1, variable);
+        Multiplication multiplication = new Multiplication(subtraction, number2);
         VariableListVisitor variableListVisitor = new VariableListVisitor();
         final List<String> result = multiplication.accept(variableListVisitor);
 

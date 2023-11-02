@@ -1,12 +1,10 @@
 package edu.austral.ingsis.math.visitor;
 
-import edu.austral.ingsis.math.visitor.Visitor;
-
-public class Subtract implements Function{
+public class Subtraction implements Function{
     private final Function left;
     private final Function right;
 
-    public Subtract(Function left, Function right) {
+    public Subtraction(Function left, Function right) {
         this.left = left;
         this.right = right;
     }

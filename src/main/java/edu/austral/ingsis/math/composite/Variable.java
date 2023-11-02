@@ -1,16 +1,28 @@
 package edu.austral.ingsis.math.composite;
 
+import java.util.ArrayList;
+
 public class Variable implements Function{
     private final String name;
-    private final double value;
 
-    public Variable(String name, double value) {
+    public Variable(String name) {
         this.name = name;
-        this.value = value;
     }
 
     @Override
     public double solve() { //Aca le tendría que pasar un mapa con el valor de cada variable y que en caso de ser una variable lo use
-        return value;
+        return 0;
+    }
+
+    @Override
+    public ArrayList<String> getVariables() {
+        return new ArrayList<>() {{
+            add(name);
+        }};
+    }
+
+    @Override
+    public String print() {
+        return name;
     }
 }

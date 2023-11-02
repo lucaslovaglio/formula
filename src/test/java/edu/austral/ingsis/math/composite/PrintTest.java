@@ -1,4 +1,4 @@
-package edu.austral.ingsis.math;
+package edu.austral.ingsis.math.composite;
 
 import org.junit.Test;
 
@@ -12,8 +12,11 @@ public class PrintTest {
      */
     @Test
     public void shouldPrintFunction1() {
+        Number number1 = new Number(1);
+        Number number2 = new Number(6);
+        Addition addition = new Addition(number1, number2);
         final String expected = "1 + 6";
-        final String result = expected;
+        final String result = addition.print();
 
         assertThat(result, equalTo(expected));
     }

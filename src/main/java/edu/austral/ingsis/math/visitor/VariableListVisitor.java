@@ -33,11 +33,11 @@ public class VariableListVisitor implements Visitor<List<String>> {
     }
 
     @Override
-    public List<String> visit(Subtract subtract) {
+    public List<String> visit(Subtraction subtraction) {
         VariableListVisitor variableListVisitor = this;
         return new ArrayList<>() {{
-            addAll(subtract.getLeft().accept(variableListVisitor));
-            addAll(subtract.getRight().accept(variableListVisitor));
+            addAll(subtraction.getLeft().accept(variableListVisitor));
+            addAll(subtraction.getRight().accept(variableListVisitor));
         }};
     }
 

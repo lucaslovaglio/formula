@@ -31,8 +31,8 @@ public class ResolverVisitor implements Visitor{
     }
 
     @Override
-    public Double visit(Subtract subtract) {
-        return (double) subtract.getLeft().accept(this) - (double) subtract.getRight().accept(this);
+    public Double visit(Subtraction subtraction) {
+        return (double) subtraction.getLeft().accept(this) - (double) subtraction.getRight().accept(this);
     }
 
     @Override

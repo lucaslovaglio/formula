@@ -6,7 +6,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class VisitorResolutionWithVariablesTest {
+public class ResolutionWithVariablesTest {
 
     /**
      * Case 1 + x where x = 3
@@ -104,13 +104,13 @@ public class VisitorResolutionWithVariablesTest {
         Number number = new Number(8);
         Variable variable = new Variable("value");
         Absolute absolute = new Absolute(variable);
-        Subtract subtract = new Subtract(absolute, number);
+        Subtraction subtraction = new Subtraction(absolute, number);
         VariableContext variableContext = new VariableContext();
         variableContext.setVariable("value", 8d);
         ResolverVisitor resolverVisitor = new ResolverVisitor(variableContext);
         final Double result = 0d;
 
-        assertThat(result, equalTo(subtract.accept(resolverVisitor)));
+        assertThat(result, equalTo(subtraction.accept(resolverVisitor)));
     }
 
     /**
@@ -121,13 +121,13 @@ public class VisitorResolutionWithVariablesTest {
         Number number = new Number(8);
         Variable variable = new Variable("value");
         Absolute absolute = new Absolute(variable);
-        Subtract subtract = new Subtract(absolute, number);
+        Subtraction subtraction = new Subtraction(absolute, number);
         VariableContext variableContext = new VariableContext();
         variableContext.setVariable("value", 8d);
         ResolverVisitor resolverVisitor = new ResolverVisitor(variableContext);
         final Double result = 0d;
 
-        assertThat(result, equalTo(subtract.accept(resolverVisitor)));
+        assertThat(result, equalTo(subtraction.accept(resolverVisitor)));
     }
 
     /**
@@ -138,8 +138,8 @@ public class VisitorResolutionWithVariablesTest {
         Number number1 = new Number(5);
         Variable variable = new Variable("i");
         Number number2 = new Number(8);
-        Subtract subtract = new Subtract(number1, variable);
-        Multiplication multiplication = new Multiplication(subtract, number2);
+        Subtraction subtraction = new Subtraction(number1, variable);
+        Multiplication multiplication = new Multiplication(subtraction, number2);
         VariableContext variableContext = new VariableContext();
         variableContext.setVariable("i", 2d);
         ResolverVisitor resolverVisitor = new ResolverVisitor(variableContext);

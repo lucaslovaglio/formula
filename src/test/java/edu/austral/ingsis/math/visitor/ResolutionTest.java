@@ -6,7 +6,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class VisitorResolutionTest {
+public class ResolutionTest {
 
     /**
      * Case 1 + 6
@@ -118,8 +118,8 @@ public class VisitorResolutionTest {
         Number number1 = new Number(5);
         Number number2 = new Number(5);
         Number number3 = new Number(8);
-        Subtract subtract = new Subtract(number1, number2);
-        Multiplication multiplication = new Multiplication(subtract, number3);
+        Subtraction subtraction = new Subtraction(number1, number2);
+        Multiplication multiplication = new Multiplication(subtraction, number3);
         ResolverVisitor resolverVisitor = new ResolverVisitor();
         final Double result = 0d;
 
