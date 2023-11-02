@@ -1,8 +1,5 @@
 package edu.austral.ingsis.math.visitor;
 
-import edu.austral.ingsis.math.visitor.*;
-import edu.austral.ingsis.math.visitor.Number;
-
 public class PrinterVisitor implements Visitor<String> {
 
     private String formatNumber(double number) {

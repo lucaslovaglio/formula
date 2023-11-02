@@ -1,8 +1,5 @@
 package edu.austral.ingsis.math.visitor;
 
-import edu.austral.ingsis.math.visitor.*;
-import edu.austral.ingsis.math.visitor.Number;
-
 public interface Visitor<T> {
     T visit(Addition addition);
     T visit(Division division);
