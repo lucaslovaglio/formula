@@ -13,7 +13,10 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction1() {
-        final Double result = 7d;
+        Number number1 = new Number(1);
+        Number number2 = new Number(6);
+        Addition addition = new Addition(number1, number2);
+        final Double result = addition.solve();
 
         assertThat(result, equalTo(7d));
     }
@@ -23,7 +26,10 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction2() {
-        final Double result = 6d;
+        Number number1 = new Number(12);
+        Number number2 = new Number(2);
+        Division division = new Division(number1, number2);
+        final Double result = division.solve();
 
         assertThat(result, equalTo(6d));
     }
@@ -33,7 +39,12 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction3() {
-        final Double result = 13.5;
+        Number number1 = new Number(9);
+        Number number2 = new Number(2);
+        Division division = new Division(number1, number2);
+        Number number3 = new Number(3);
+        Multiplication multiplication = new Multiplication(division, number3);
+        final Double result = multiplication.solve();
 
         assertThat(result, equalTo(13.5d));
     }
@@ -43,7 +54,12 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction4() {
-        final Double result = 20.25;
+        Number number1 = new Number(27);
+        Number number2 = new Number(6);
+        Division division = new Division(number1, number2);
+        Number number3 = new Number(2);
+        Power power = new Power(division, number3);
+        final Double result = power.solve();
 
         assertThat(result, equalTo(20.25d));
     }
@@ -53,7 +69,12 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction5() {
-        final Double result = 6d;
+        Number number1 = new Number(36);
+        Number number2 = new Number(2);
+        Number number3 = new Number(1);
+        Division division = new Division(number3, number2);
+        Power power = new Power(number1, division);
+        final Double result = power.solve();
 
         assertThat(result, equalTo(6d));
     }
@@ -63,7 +84,9 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction6() {
-        final Double result = 136d;
+        Number number1 = new Number(136);
+        Absolute absolute = new Absolute(number1);
+        final Double result = absolute.solve();
 
         assertThat(result, equalTo(136d));
     }
@@ -73,7 +96,9 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction7() {
-        final Double result = 136d;
+        Number number1 = new Number(-136);
+        Absolute absolute = new Absolute(number1);
+        final Double result = absolute.solve();
 
         assertThat(result, equalTo(136d));
     }
@@ -83,7 +108,12 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction8() {
-        final Double result = 0d;
+        Number number1 = new Number(5);
+        Number number2 = new Number(5);
+        Subtraction subtraction = new Subtraction(number1, number2);
+        Number number3 = new Number(8);
+        Multiplication multiplication = new Multiplication(subtraction, number3);
+        final Double result = multiplication.solve();
 
         assertThat(result, equalTo(0d));
     }

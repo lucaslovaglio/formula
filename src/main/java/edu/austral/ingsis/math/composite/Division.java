@@ -1,6 +1,10 @@
 package edu.austral.ingsis.math.composite;
 
+import edu.austral.ingsis.math.visitor.VariableContext;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Division implements Function{
     private final Function numeral;
@@ -12,8 +16,13 @@ public class Division implements Function{
     }
 
     @Override
+    public double solve(VariableContext variablesContext) {
+        return numeral.solve(variablesContext) / denominator.solve(variablesContext);
+    }
+
+    @Override
     public double solve() {
-        return numeral.solve() / denominator.solve();
+        return solve(new VariableContext());
     }
 
     @Override

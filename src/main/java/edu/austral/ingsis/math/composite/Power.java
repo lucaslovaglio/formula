@@ -1,6 +1,10 @@
 package edu.austral.ingsis.math.composite;
 
+import edu.austral.ingsis.math.visitor.VariableContext;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Power implements Function{
     private final Function base;
@@ -12,8 +16,13 @@ public class Power implements Function{
     }
 
     @Override
+    public double solve(VariableContext variablesContext) {
+        return Math.pow(base.solve(variablesContext), exponent.solve(variablesContext));
+    }
+
+    @Override
     public double solve() {
-        return Math.pow(base.solve(), exponent.solve());
+        return solve(new VariableContext());
     }
 
     @Override

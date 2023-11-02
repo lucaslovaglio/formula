@@ -13,7 +13,12 @@ public class ResolutionWithVariablesTest {
      */
     @Test
     public void shouldResolveFunction1() {
-        final Double result = 4d;
+        Number number = new Number(1);
+        Variable variable = new Variable("x");
+        Addition addition = new Addition(number, variable);
+        VariableContext variableContext = new VariableContext();
+        variableContext.setVariable("x", 3d);
+        final Double result = addition.solve();
 
         assertThat(result, equalTo(4d));
     }

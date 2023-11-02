@@ -1,6 +1,10 @@
 package edu.austral.ingsis.math.composite;
 
+import edu.austral.ingsis.math.visitor.VariableContext;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Variable implements Function{
     private final String name;
@@ -10,8 +14,13 @@ public class Variable implements Function{
     }
 
     @Override
-    public double solve() { //Aca le tendría que pasar un mapa con el valor de cada variable y que en caso de ser una variable lo use
-        return 0;
+    public double solve(VariableContext variableCpnrext) { //Aca le tendría que pasar un mapa con el valor de cada variable y que en caso de ser una variable lo use
+        return variableCpnrext.getVariable(name);
+    }
+
+    @Override
+    public double solve() {
+        return solve(new VariableContext());
     }
 
     @Override

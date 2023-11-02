@@ -1,6 +1,10 @@
 package edu.austral.ingsis.math.composite;
 
+import edu.austral.ingsis.math.visitor.VariableContext;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Addition implements Function{
     private final Function left;
@@ -12,8 +16,13 @@ public class Addition implements Function{
     }
 
     @Override
+    public double solve(VariableContext variablesContext) {
+        return left.solve(variablesContext) + right.solve(variablesContext);
+    }
+
+    @Override
     public double solve() {
-        return left.solve() + right.solve();
+        return solve(new VariableContext());
     }
 
     @Override
