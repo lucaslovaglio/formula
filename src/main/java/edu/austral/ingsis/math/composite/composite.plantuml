@@ -1,0 +1,86 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Absolute {
+  + solve(VariableContext): double
+  + print(): String
+  + solve(): double
+   variables: ArrayList<String>
+}
+class Addition {
+  + print(): String
+  + solve(VariableContext): double
+  + solve(): double
+   variables: ArrayList<String>
+}
+class Division {
+  + solve(): double
+  + solve(VariableContext): double
+  + print(): String
+   variables: ArrayList<String>
+}
+class Formater {
+  + formatFunction(Function): String
+}
+interface Function << interface >> {
+  + solve(): double
+  + print(): String
+  + solve(VariableContext): double
+   variables: ArrayList<String>
+}
+class Multiplication {
+  + solve(VariableContext): double
+  + solve(): double
+  + print(): String
+   variables: ArrayList<String>
+}
+class Number {
+  + solve(): double
+  + solve(VariableContext): double
+  + print(): String
+   variables: ArrayList<String>
+}
+interface OneArgumentFunction << interface >>
+class Power {
+  + solve(VariableContext): double
+  + solve(): double
+  + print(): String
+   variables: ArrayList<String>
+}
+class SquareRoot {
+  + print(): String
+  + solve(): double
+  + solve(VariableContext): double
+   variables: ArrayList<String>
+}
+class Subtraction {
+  + solve(VariableContext): double
+  + solve(): double
+  + print(): String
+   variables: ArrayList<String>
+}
+class Variable {
+  + solve(): double
+  + print(): String
+  + solve(VariableContext): double
+   variables: ArrayList<String>
+}
+class VariableContext {
+  + getVariable(String): Double
+  + setVariable(String, Double): void
+}
+
+Absolute             -[#008200,dashed]-^  OneArgumentFunction 
+Addition             -[#008200,dashed]-^  Function            
+Division             -[#008200,dashed]-^  Function            
+Multiplication       -[#008200,dashed]-^  Function            
+Number               -[#008200,dashed]-^  OneArgumentFunction 
+OneArgumentFunction  -[#008200,plain]-^  Function            
+Power                -[#008200,dashed]-^  Function            
+SquareRoot           -[#008200,dashed]-^  OneArgumentFunction 
+Subtraction          -[#008200,dashed]-^  Function            
+Variable             -[#008200,dashed]-^  OneArgumentFunction 
+@enduml

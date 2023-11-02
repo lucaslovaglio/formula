@@ -1,0 +1,119 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Absolute {
+  + accept(Visitor<T>): T
+   base: Function
+}
+class Addition {
+  + accept(Visitor<T>): T
+   left: Function
+   right: Function
+}
+class Division {
+  + accept(Visitor<T>): T
+   denominator: Function
+   numeral: Function
+}
+interface Function << interface >> {
+  + accept(Visitor<T>): T
+}
+class Multiplication {
+  + accept(Visitor<T>): T
+   left: Function
+   right: Function
+}
+class Number {
+  + accept(Visitor<T>): T
+   value: double
+}
+interface OneArgumentFunction << interface >> {
+  + accept(Visitor<T>): T
+}
+class Power {
+  + accept(Visitor<T>): T
+   exponent: Function
+   base: Function
+}
+class PrinterVisitor {
+  - formatFunction(Function): String
+  - formatNumber(double): String
+  + visit(Multiplication): String
+  + visit(Number): String
+  + visit(Power): String
+  + visit(Absolute): String
+  + visit(Variable): String
+  + visit(Subtraction): String
+  + visit(SquareRoot): String
+  + visit(Addition): String
+  + visit(Division): String
+}
+class ResolverVisitor {
+  + visit(Multiplication): Double
+  + visit(Number): Double
+  + visit(Absolute): Double
+  + visit(Power): Double
+  + visit(SquareRoot): Double
+  + visit(Variable): Double
+  + visit(Addition): Double
+  + visit(Division): Double
+  + visit(Subtraction): Double
+   variableContext: VariableContext
+}
+class SquareRoot {
+  + accept(Visitor<T>): T
+   radical: Function
+}
+class Subtraction {
+  + accept(Visitor<T>): T
+   left: Function
+   right: Function
+}
+class Variable {
+  + accept(Visitor<T>): T
+   name: String
+}
+class VariableContext {
+  + setVariable(String, Double): void
+  + getVariable(String): Double
+}
+class VariableListVisitor {
+  + visit(Addition): List<String>
+  + visit(Division): List<String>
+  + visit(Variable): List<String>
+  + visit(Power): List<String>
+  + visit(Subtraction): List<String>
+  + visit(SquareRoot): List<String>
+  + visit(Number): List<String>
+  + visit(Multiplication): List<String>
+  + visit(Absolute): List<String>
+}
+interface Visitor<T> << interface >> {
+  + visit(Division): T
+  + visit(Addition): T
+  + visit(Multiplication): T
+  + visit(Subtraction): T
+  + visit(SquareRoot): T
+  + visit(Number): T
+  + visit(Absolute): T
+  + visit(Power): T
+  + visit(Variable): T
+}
+
+Absolute             -[#008200,dashed]-^  OneArgumentFunction 
+Addition             -[#008200,dashed]-^  Function            
+Division             -[#008200,dashed]-^  Function            
+Multiplication       -[#008200,dashed]-^  Function            
+Number               -[#008200,dashed]-^  OneArgumentFunction 
+OneArgumentFunction  -[#008200,plain]-^  Function            
+Power                -[#008200,dashed]-^  Function            
+PrinterVisitor       -[#008200,dashed]-^  Visitor             
+ResolverVisitor      -[#008200,dashed]-^  Visitor             
+SquareRoot           -[#008200,dashed]-^  Function            
+Subtraction          -[#008200,dashed]-^  Function            
+Variable             -[#008200,dashed]-^  OneArgumentFunction 
+VariableListVisitor  -[#008200,dashed]-^  Visitor             
+@enduml

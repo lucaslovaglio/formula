@@ -10,14 +10,11 @@ public class PrinterVisitor implements Visitor<String> {
     }
 
     private String formatFunction(Function function) {
-        if (!(function instanceof OneArgumentFunction)) {
-            return "(" + function.accept(this) + ")";
-        }
-        return function.accept(this);
+        return switch (function) {
+            case OneArgumentFunction oneArgumentFunction -> oneArgumentFunction.accept(this);
+            default -> "(" + function.accept(this) + ")";
+        };
     }
-
-
-
 
 
     @Override
