@@ -1,12 +1,10 @@
 package edu.austral.ingsis.math.composite;
 
-import edu.austral.ingsis.math.visitor.VariableContext;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SquareRoot implements Function{
+public class SquareRoot implements OneArgumentFunction{
     private final Function radical;
 
     public SquareRoot(Function radical) {
@@ -32,6 +30,6 @@ public class SquareRoot implements Function{
 
     @Override
     public String print() {
-        return "√" + radical.print();
+        return "√" + Formater.formatFunction(radical);
     }
 }

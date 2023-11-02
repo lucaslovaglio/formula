@@ -18,7 +18,7 @@ public class ResolutionWithVariablesTest {
         Addition addition = new Addition(number, variable);
         VariableContext variableContext = new VariableContext();
         variableContext.setVariable("x", 3d);
-        final Double result = addition.solve();
+        final Double result = addition.solve(variableContext);
 
         assertThat(result, equalTo(4d));
     }

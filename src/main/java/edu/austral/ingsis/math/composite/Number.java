@@ -1,12 +1,10 @@
 package edu.austral.ingsis.math.composite;
 
-import edu.austral.ingsis.math.visitor.VariableContext;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Number implements Function{
+public class Number implements OneArgumentFunction{
     private final double value;
 
     public Number(double value) {

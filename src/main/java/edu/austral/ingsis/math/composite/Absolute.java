@@ -1,12 +1,11 @@
 package edu.austral.ingsis.math.composite;
 
-import edu.austral.ingsis.math.visitor.VariableContext;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Absolute implements Function{
+public class Absolute implements OneArgumentFunction{
     private final Function base;
 
     public Absolute(Function base) {
@@ -32,6 +31,6 @@ public class Absolute implements Function{
 
     @Override
     public String print() {
-        return "|" + base.print() + "|" ;
+        return "|" + Formater.formatFunction(base) + "|" ;
     }
 }

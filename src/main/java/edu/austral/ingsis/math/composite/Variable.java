@@ -1,12 +1,10 @@
 package edu.austral.ingsis.math.composite;
 
-import edu.austral.ingsis.math.visitor.VariableContext;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Variable implements Function{
+public class Variable implements OneArgumentFunction{
     private final String name;
 
     public Variable(String name) {

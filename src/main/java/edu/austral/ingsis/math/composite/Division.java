@@ -1,7 +1,5 @@
 package edu.austral.ingsis.math.composite;
 
-import edu.austral.ingsis.math.visitor.VariableContext;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +33,6 @@ public class Division implements Function{
 
     @Override
     public String print() {
-        return numeral.print() + " / " + denominator.print();
+        return Formater.formatFunction(numeral) + " / " + Formater.formatFunction(denominator);
     }
 }
